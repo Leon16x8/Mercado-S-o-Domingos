@@ -21,15 +21,17 @@
 
         public function __toString() : string
         {
-            return "<br>Produto: ".$this->nomedoProduto."<br>Valor: ".$this->valordoProduto."<br>Estoque: ".$this->quantidadeEstoque;
+            return "<br>Produto: ".$this->nomedoProduto."<br>Valor: R$ ".$this->valordoProduto."<br>Estoque: ".$this->quantidadeEstoque;
         }//fim do toString
 
         public function compra(Produto $produto, int $quantidadeEscolhida){
             if($quantidadeEscolhida <= $produto->quantidadeEstoque){
                 echo "<br><br>  |-----COMPRA EFETUADA COM SUCESSO-----|";
                 echo "<br><br>Produto: " . $produto->nomedoProduto;
-                echo "<br>Valor: " . $produto->valordoProduto;
+                echo "<br>Valor Total: R$ " . $produto->valordoProduto * $quantidadeEscolhida;
                 echo "<br>Quantidade escolhida: ". $quantidadeEscolhida;
+                echo "<br><br>Estoque Atualizado: ".$produto->quantidadeEstoque - $quantidadeEscolhida;
+                return;
             }else{
                 echo "<br><br> |-----A QUANTIDADE ESCOLHIDA NÃO TEM EM NOSSA LOJA-----|";
             }
