@@ -1,5 +1,8 @@
 <?php
+    
+
     class Produto{
+        
         protected string $nomedoProduto;
         protected string $valordoProduto;
         protected string $quantidadeEstoque;
@@ -30,10 +33,15 @@
                 echo "<br><br>Produto: " . $produto->nomedoProduto;
                 echo "<br>Valor Total: R$ " . $produto->valordoProduto * $quantidadeEscolhida;
                 echo "<br>Quantidade escolhida: ". $quantidadeEscolhida;
-                echo "<br><br>Estoque Atualizado: ".$produto->quantidadeEstoque - $quantidadeEscolhida;
-                return;
+                echo "<br><br>Estoque Atualizado: ".$produto->quantidadeEstoque - $quantidadeEscolhida;   
             }else{
                 echo "<br><br> |-----A QUANTIDADE ESCOLHIDA NÃO TEM EM NOSSA LOJA-----|";
+                return;
+            }
+            
+            if($quantidadeEscolhida >= 10){
+                echo "<br><br>GANHOU CUPOM PARA PROXIMA COMPRA DE: R$ ".$produto->valordoProduto / 2;
+                return;
             }
         }
 
